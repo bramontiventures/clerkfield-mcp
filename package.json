@@ -1,0 +1,22 @@
+{
+  "name": "clerkfield-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Clerkfield: verify U.S. businesses against official state registries and search UCC liens, from Claude, Cursor, VS Code and other AI assistants.",
+  "mcpName": "com.clerkfield/mcp",
+  "type": "module",
+  "main": "index.js",
+  "bin": { "clerkfield-mcp": "index.js" },
+  "files": ["index.js", "README.md", "LICENSE", "CHANGELOG.md"],
+  "engines": { "node": ">=18.17" },
+  "scripts": { "test": "node --test", "start": "node index.js" },
+  "keywords": ["mcp", "model-context-protocol", "business-verification", "kyb", "ucc", "ucc-lien-search", "secretary-of-state", "merchant-cash-advance", "clerkfield"],
+  "homepage": "https://clerkfield.com/docs#mcp",
+  "repository": { "type": "git", "url": "git+https://github.com/bramontiventures/clerkfield-mcp.git" },
+  "bugs": { "url": "https://github.com/bramontiventures/clerkfield-mcp/issues", "email": "hello@clerkfield.com" },
+  "author": "Bramonti Ventures LLC <hello@clerkfield.com> (https://clerkfield.com)",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^3.25.76"
+  }
+}

@@ -1,0 +1,14 @@
+# Smithery configuration: https://smithery.ai/docs
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required: ["apiKey"]
+    properties:
+      apiKey:
+        type: string
+        description: "Clerkfield API key (create one free at https://clerkfield.com/app#profile)"
+  commandFunction: |-
+    (config) => ({ command: "node", args: ["index.js"], env: { CLERKFIELD_API_KEY: config.apiKey } })
+  exampleConfig:
+    apiKey: "cf_live_..."

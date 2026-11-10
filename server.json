@@ -1,0 +1,48 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.clerkfield/mcp",
+  "title": "Clerkfield",
+  "description": "Verify U.S. businesses against state registries and search UCC liens by business or lender.",
+  "repository": {
+    "url": "https://github.com/bramontiventures/clerkfield-mcp",
+    "source": "github",
+    "id": "1453011024"
+  },
+  "websiteUrl": "https://clerkfield.com/docs#mcp",
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "clerkfield-mcp",
+      "version": "1.0.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "CLERKFIELD_API_KEY",
+          "description": "Clerkfield API key (create one free at https://clerkfield.com/app#profile)",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://clerkfield.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer followed by your Clerkfield API key",
+          "isRequired": true,
+          "isSecret": true,
+          "value": "Bearer {api_key}",
+          "variables": {
+            "api_key": { "description": "Clerkfield API key", "isRequired": true, "isSecret": true }
+          }
+        }
+      ]
+    }
+  ]
+}

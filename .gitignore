@@ -1,0 +1,4 @@
+node_modules/
+.mcpregistry_*
+*.log
+.DS_Store
