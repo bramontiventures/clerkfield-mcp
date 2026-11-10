@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "clerkfield": {
+      "type": "http",
+      "url": "https://clerkfield.com/mcp"
+    }
+  }
+}
