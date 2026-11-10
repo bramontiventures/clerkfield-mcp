@@ -5,6 +5,8 @@
   "description": "Verify U.S. businesses against official state registries and check UCC liens for stacking, with an underwriting workflow that turns the results into a clear credit-file summary.",
   "author": { "name": "Bramonti Ventures LLC", "url": "https://clerkfield.com", "email": "hello@clerkfield.com" },
   "homepage": "https://clerkfield.com",
+  "privacyPolicyUrl": "https://clerkfield.com/privacy",
+  "icon": ".claude-plugin/icon.png",
   "repository": "https://github.com/bramontiventures/clerkfield-mcp",
   "license": "MIT",
   "keywords": ["business-verification", "kyb", "ucc", "lien-search", "underwriting", "merchant-cash-advance", "secretary-of-state"]
