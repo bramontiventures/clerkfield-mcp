@@ -1,0 +1,23 @@
+{
+  "actorSpecification": 1,
+  "fields": {},
+  "views": {
+    "overview": {
+      "title": "Overview",
+      "transformation": {
+        "fields": ["operation", "input", "verdict", "summary", "error", "source"]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "operation": { "label": "Operation", "format": "text" },
+          "input": { "label": "Input", "format": "object" },
+          "verdict": { "label": "Verdict", "format": "text" },
+          "summary": { "label": "Summary", "format": "text" },
+          "error": { "label": "Error", "format": "text" },
+          "source": { "label": "Source", "format": "text" }
+        }
+      }
+    }
+  }
+}

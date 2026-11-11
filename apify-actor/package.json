@@ -1,0 +1,16 @@
+{
+  "name": "clerkfield-apify-actor",
+  "version": "0.1.0",
+  "description": "Apify Actor for Clerkfield: U.S. business verification and UCC lien search from official state records.",
+  "type": "module",
+  "main": "src/main.js",
+  "license": "MIT",
+  "author": "Bramonti Ventures LLC <hello@clerkfield.com>",
+  "homepage": "https://clerkfield.com",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "apify": "^3.2.6"
+  }
+}

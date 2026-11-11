@@ -1,0 +1,58 @@
+{
+  "title": "Clerkfield input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "operation": {
+      "title": "What to do",
+      "type": "string",
+      "description": "Verify businesses against their state registry, search UCC liens, or list which states each check covers (coverage needs no API key).",
+      "editor": "select",
+      "enum": ["verifyBusiness", "searchLiens", "coverage"],
+      "enumTitles": ["Verify businesses", "Search UCC liens", "Get coverage by state"],
+      "default": "verifyBusiness"
+    },
+    "apiKey": {
+      "title": "Clerkfield API key",
+      "type": "string",
+      "description": "Your free Clerkfield API key (starts with cf_live_). Create one at https://clerkfield.com/app#profile. Not needed for coverage.",
+      "editor": "textfield",
+      "isSecret": true
+    },
+    "businesses": {
+      "title": "Businesses to verify",
+      "type": "array",
+      "description": "One object per business: name (as the applicant gave it), state (two-letter state of formation), and optionally owner (checked against the officers the state lists) and minMonths (minimum months in business, default 6).",
+      "editor": "json",
+      "prefill": [{ "name": "DIY Automotive LLC", "state": "FL", "owner": "Eric Vonfricken" }]
+    },
+    "lienState": {
+      "title": "Lien search: state",
+      "type": "string",
+      "description": "Two-letter state code whose UCC filing office to search, usually where the business is organized.",
+      "editor": "textfield",
+      "prefill": "FL"
+    },
+    "lienSearchBy": {
+      "title": "Lien search: search by",
+      "type": "string",
+      "editor": "select",
+      "enum": ["debtor", "securedParty"],
+      "enumTitles": ["Business (debtor)", "Lender (secured party)"],
+      "default": "debtor"
+    },
+    "lienName": {
+      "title": "Lien search: business or lender name",
+      "type": "string",
+      "editor": "textfield",
+      "prefill": "DIY Automotive LLC"
+    },
+    "includeInactive": {
+      "title": "Lien search: include lapsed and terminated filings",
+      "type": "boolean",
+      "description": "Lapsed and terminated filings show lending history. Turn off for active filings only.",
+      "default": true
+    }
+  },
+  "required": ["operation"]
+}

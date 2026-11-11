@@ -1,0 +1,13 @@
+{
+  "actorSpecification": 1,
+  "name": "clerkfield-business-verification",
+  "title": "Clerkfield: U.S. Business Verification & UCC Lien Search",
+  "description": "Verify U.S. businesses against official state registries (Pass, Review or Fail verdict) and search UCC liens by business or lender, with the source and date on every result.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "./Dockerfile",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  }
+}
