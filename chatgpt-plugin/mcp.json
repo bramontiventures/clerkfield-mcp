@@ -1,0 +1,18 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "clerkfield": {
+      "type": "streamable-http",
+      "url": "https://clerkfield.com/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": { "mode": "dcr" },
+            "registrationUrl": "https://clerkfield.com/oauth/register"
+          }
+        }
+      }
+    }
+  }
+}

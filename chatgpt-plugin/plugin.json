@@ -1,0 +1,103 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "clerkfield",
+  "version": "1.0.0",
+  "description": "Verify U.S. businesses against official state registries and check their UCC liens for stacking, with the source and date on every result.",
+  "author": {
+    "name": "Bramonti Ventures LLC",
+    "email": "hello@clerkfield.com",
+    "url": "https://clerkfield.com"
+  },
+  "homepage": "https://clerkfield.com",
+  "repository": "https://github.com/bramontiventures/clerkfield-mcp",
+  "license": "MIT",
+  "keywords": ["business-verification", "kyb", "ucc", "lien-search", "underwriting", "merchant-cash-advance"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Clerkfield",
+        "shortDescription": "Verify businesses, UCC liens",
+        "longDescription": "Clerkfield answers the two questions every business credit file starts with: is this business real and active, and who has already lent to it? It reads each state's own business registry and UCC filing office, not a resold database, and returns the source and the date of the data with every result.\n\nVerify a business by name and state: Clerkfield returns a Pass, Review or Fail verdict with the reasons (exact or close name match, active or inactive status, months in business against a minimum, whether the applicant appears among the officers the state lists), plus the state's record: legal name, entity ID, status, formation date, addresses, registered agent and officers.\n\nSearch UCC liens filed against a business, or every lien a lender has filed, with file numbers, dates, status, parties, collateral and later amendments, and a summary that puts the lenders on active liens first so stacking is visible at a glance.\n\nAll tools are read-only. Fields a state doesn't publish are marked as not published, and if a state's records can't be reached the answer says so instead of guessing. Coverage differs by check; ask which states are covered. Built for merchant cash advance funders, lenders and fintech teams doing KYB. Sign in with a free Clerkfield account; free during beta. Clerkfield reports on businesses only and is not a consumer reporting agency.",
+        "developerName": "Bramonti Ventures LLC",
+        "category": "Business",
+        "capabilities": [
+          "Verify a U.S. business against the state registry",
+          "Check whether an applicant is a listed officer",
+          "Search UCC liens filed against a business",
+          "List every UCC filing a lender has made",
+          "Show which states each check covers"
+        ],
+        "websiteURL": "https://clerkfield.com",
+        "supportURL": "https://clerkfield.com/contact",
+        "privacyPolicyURL": "https://clerkfield.com/privacy",
+        "termsOfServiceURL": "https://clerkfield.com/terms",
+        "defaultPrompt": [
+          "Verify DIY Automotive LLC in Florida.",
+          "Which lenders have active UCC liens on DIY Automotive LLC in Florida?",
+          "Which states does Clerkfield cover?"
+        ],
+        "brandColor": "#12263F",
+        "brandColorDark": "#8CB4FF",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Show coverage for lien search",
+              "prompt": "Which states does Clerkfield cover for UCC lien search?",
+              "tools_triggered": "get_coverage",
+              "expected_behavior": "Lists the states where lien search is covered (including Florida, Connecticut and New Jersey) and notes which support search by lender."
+            },
+            {
+              "description": "Verify an active Florida business",
+              "prompt": "Verify DIY Automotive LLC in Florida.",
+              "tools_triggered": "verify_business",
+              "expected_behavior": "Returns a PASS verdict for DIY AUTOMOTIVE LLC (entity L22000110053), status active, formed 2022-03-03, with the registered agent, officers and the Sunbiz source and date."
+            },
+            {
+              "description": "Check that an applicant is a listed officer",
+              "prompt": "Is Eric Vonfricken listed as an officer of DIY Automotive LLC in Florida?",
+              "tools_triggered": "verify_business",
+              "expected_behavior": "Confirms the name appears among the officers the state lists (Manager) and states this only checks the state's officer list, not identity."
+            },
+            {
+              "description": "Find active liens on a business",
+              "prompt": "Which lenders have active UCC liens on DIY Automotive LLC in Florida?",
+              "tools_triggered": "search_liens",
+              "expected_behavior": "Summarizes the filings and names the secured parties on active filings (JPMorgan Chase and Republic Bank Finance), with file numbers, filing and lapse dates, and the source."
+            },
+            {
+              "description": "List filings made by a lender",
+              "prompt": "List the UCC filings Pearl Capital has made in Florida and how many are still active.",
+              "tools_triggered": "search_liens",
+              "expected_behavior": "Searches by secured party and reports about 72 filings, most lapsed or terminated, with the newest first and the count of active ones."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Consumer credit decision (out of scope)",
+              "prompt": "Should I approve John Smith for a personal loan based on his credit history?"
+            },
+            {
+              "description": "Request to change public records (tools are read-only)",
+              "prompt": "Delete the UCC lien that JPMorgan Chase filed against DIY Automotive LLC."
+            },
+            {
+              "description": "Payment request unrelated to the plugin",
+              "prompt": "Send $500 to Pearl Capital from my bank account."
+            }
+          ]
+        },
+        "demo_recording_url": "https://youtu.be/jI7psRlphXU",
+        "commerce": false,
+        "commerce_description": "This plugin does not sell products or process payments. Clerkfield is free during its beta."
+      },
+      "publication": {
+        "countries": ["US"],
+        "release_notes": "Initial release: business verification against state registries, UCC lien search by business or lender, and coverage by state, through Clerkfield's remote MCP server with OAuth sign-in."
+      }
+    }
+  }
+}
