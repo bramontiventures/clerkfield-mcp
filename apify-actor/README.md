@@ -16,7 +16,7 @@ Coverage differs by check and state; see [clerkfield.com/coverage](https://clerk
 
 1. Create a free Clerkfield account at [clerkfield.com/app](https://clerkfield.com/app#signup) and create an API key in your profile (it starts with `cf_live_`).
 2. Paste the key into **Clerkfield API key** (stored as a secret input).
-3. Choose **What to do**:
+3. Choose **What to do** (it starts on *Get coverage by state*, which needs no key):
    - *Verify businesses*: fill **Businesses to verify**, for example `[{"name": "DIY Automotive LLC", "state": "FL", "owner": "Eric Vonfricken"}]`. Add as many as you need.
    - *Search UCC liens*: set the state, search by business or lender, and the name.
    - *Get coverage by state*: no other input needed.

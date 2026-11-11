@@ -10,7 +10,7 @@
       "editor": "select",
       "enum": ["verifyBusiness", "searchLiens", "coverage"],
       "enumTitles": ["Verify businesses", "Search UCC liens", "Get coverage by state"],
-      "default": "verifyBusiness"
+      "default": "coverage"
     },
     "apiKey": {
       "title": "Clerkfield API key",

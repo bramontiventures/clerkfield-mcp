@@ -22,7 +22,7 @@ function sourceOf(body) {
 
 await Actor.init();
 const input = (await Actor.getInput()) ?? {};
-const { operation = 'verifyBusiness', apiKey } = input;
+const { operation = 'coverage', apiKey } = input;
 
 if (operation !== 'coverage' && !apiKey) {
     await Actor.fail('Add your Clerkfield API key (create one free at https://clerkfield.com/app#profile).');
