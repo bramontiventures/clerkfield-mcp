@@ -11,15 +11,22 @@
   "homepage": "https://clerkfield.com",
   "repository": "https://github.com/bramontiventures/clerkfield-mcp",
   "license": "MIT",
-  "keywords": ["business-verification", "kyb", "ucc", "lien-search", "underwriting", "merchant-cash-advance"],
+  "keywords": [
+    "business-verification",
+    "kyb",
+    "ucc",
+    "lien-search",
+    "underwriting",
+    "merchant-cash-advance"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Clerkfield",
         "shortDescription": "Verify businesses, UCC liens",
-        "longDescription": "Clerkfield answers the two questions every business credit file starts with: is this business real and active, and who has already lent to it? It reads each state's own business registry and UCC filing office, not a resold database, and returns the source and the date of the data with every result.\n\nVerify a business by name and state: Clerkfield returns a Pass, Review or Fail verdict with the reasons (exact or close name match, active or inactive status, months in business against a minimum, whether the applicant appears among the officers the state lists), plus the state's record: legal name, entity ID, status, formation date, addresses, registered agent and officers.\n\nSearch UCC liens filed against a business, or every lien a lender has filed, with file numbers, dates, status, parties, collateral and later amendments, and a summary that puts the lenders on active liens first so stacking is visible at a glance.\n\nAll tools are read-only. Fields a state doesn't publish are marked as not published, and if a state's records can't be reached the answer says so instead of guessing. Coverage differs by check; ask which states are covered. Built for merchant cash advance funders, lenders and fintech teams doing KYB. Sign in with a free Clerkfield account; free during beta. Clerkfield reports on businesses only and is not a consumer reporting agency.",
+        "longDescription": "Clerkfield answers the two questions every business credit file starts with: is this business real and active, and who has already lent to it? It reads each state's own business registry and UCC filing office, not a resold database, and returns the source and the date of the data with every result.\n\nVerify a business by name and state: Clerkfield returns a Pass, Review or Fail verdict with the reasons (exact or close name match, active or inactive status, months in business against a minimum, whether the applicant appears among the officers the state lists), plus the state's record: legal name, entity ID, status, formation date, addresses, registered agent and officers.\n\nSearch UCC liens filed against a business, or every lien a lender has filed, with file numbers, dates, status, parties, collateral and later amendments, and a summary that puts the lenders on active liens first so stacking is visible at a glance.\n\nAll tools are read-only. Fields a state doesn't publish are marked as not published, and if a state's records can't be reached the answer says so instead of guessing. Coverage differs by check; ask which states are covered. Built for merchant cash advance funders, lenders and fintech teams doing KYB. Sign in with your Clerkfield account. Clerkfield reports on businesses only and is not a consumer reporting agency.",
         "developerName": "Bramonti Ventures LLC",
-        "category": "Business",
+        "category": "Finance",
         "capabilities": [
           "Verify a U.S. business against the state registry",
           "Check whether an applicant is a listed officer",
@@ -92,10 +99,12 @@
         },
         "demo_recording_url": "https://youtu.be/jI7psRlphXU",
         "commerce": false,
-        "commerce_description": "This plugin does not sell products or process payments. Clerkfield is free during its beta."
+        "commerce_description": "This plugin does not sell products or process payments."
       },
       "publication": {
-        "countries": ["US"],
+        "countries": [
+          "US"
+        ],
         "release_notes": "Initial release: business verification against state registries, UCC lien search by business or lender, and coverage by state, through Clerkfield's remote MCP server with OAuth sign-in."
       }
     }

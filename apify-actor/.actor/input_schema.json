@@ -36,6 +36,7 @@
     "lienSearchBy": {
       "title": "Lien search: search by",
       "type": "string",
+      "description": "Search filings against a business (debtor), for example to check for stacking, or every filing a lender (secured party) has made in the state.",
       "editor": "select",
       "enum": ["debtor", "securedParty"],
       "enumTitles": ["Business (debtor)", "Lender (secured party)"],
@@ -44,6 +45,7 @@
     "lienName": {
       "title": "Lien search: business or lender name",
       "type": "string",
+      "description": "The business's legal name (for a debtor search) or the lender's name (for a secured-party search).",
       "editor": "textfield",
       "prefill": "DIY Automotive LLC"
     },
