@@ -1,0 +1,12 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Clerkfield output",
+  "properties": {
+    "overview": {
+      "type": "string",
+      "title": "Results",
+      "description": "One row per business checked or lien search run: verdict or summary, source and data date, with the full API response in result.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items?view=overview"
+    }
+  }
+}
